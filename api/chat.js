@@ -1,4 +1,3 @@
-// api/chat.js (formerly server.js)
 const { Configuration, OpenAIApi } = require('openai');
 
 // OpenAI API configuration
@@ -7,7 +6,7 @@ const configuration = new Configuration({
 });
 const openai = new OpenAIApi(configuration);
 
-// Export as an async serverless function (this is required for Vercel)
+// Export as an async serverless function (required by Vercel)
 module.exports = async (req, res) => {
   if (req.method === 'POST') {
     const { message } = req.body;
