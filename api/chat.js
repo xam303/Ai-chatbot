@@ -1,12 +1,14 @@
 const { Configuration, OpenAIApi } = require('openai');
 
+// Log the API key to check if it's being read correctly
+console.log('OPENAI_API_KEY:', process.env.OPENAI_API_KEY);
+
 // OpenAI API configuration
 const configuration = new Configuration({
   apiKey: process.env.OPENAI_API_KEY, // Access the API key from environment variables
 });
 const openai = new OpenAIApi(configuration);
 
-// Export as an async serverless function (required by Vercel)
 module.exports = async (req, res) => {
   if (req.method === 'POST') {
     const { message } = req.body;
